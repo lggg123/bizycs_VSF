@@ -17,6 +17,7 @@ lib-cov
 
 # env file which will be added in vercel
 .env
+.env-*
 
 # Coverage directory used by tools like istanbul
 coverage
