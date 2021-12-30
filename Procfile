@@ -1,1 +1,1 @@
-worker: yarn start
+web: --bind :$PORT yarn start
