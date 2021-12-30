@@ -1,1 +1,1 @@
-web: --bind :$PORT yarn start
+web: yarn start
