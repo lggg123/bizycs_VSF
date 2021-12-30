@@ -30,7 +30,7 @@
         </div>
       </div>
       <div style="width: 60%; padding: 10px;">
-        <LazyYoutube src="hhttps://www.youtube.com/watch?v=azwDrXeFNUs&list=PLYU7ZBx6LRcVyOy6lYrAGigmb7kFanAkN&index=10" />
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/azwDrXeFNUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
     <section class="section-box" data-section-name="homeBannerGrid">
@@ -62,8 +62,6 @@
   </div>
 </template>
 <script type="module">
-import LazyYoutube from "vue-lazytube";
-import '@videojs/themes/dist/city/index.css';
 import {
   SfBanner,
   SfCallToAction,
@@ -104,7 +102,6 @@ export default {
     SfHeading,
     SfArrow,
     SfButton,
-    LazyYoutube,
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setup() {
