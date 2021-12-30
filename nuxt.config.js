@@ -4,7 +4,7 @@ import webpack from 'webpack';
 /** @type { import('@nuxt/types').NuxtConfig } */ 
 const config = {
   server: {
-    port: 3001,
+    port: process.env.PORT,
     host: '0.0.0.0'
   },
   publicRuntimeConfig: {
