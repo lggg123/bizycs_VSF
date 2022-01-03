@@ -1,17 +1,25 @@
 # Vue Storefront Shopify Template
 
-Vue Storefront 2 template for Shopify.
+Vue Storefront 2 template for Shopify. To contribute or if you are assigned a task to work on bizycs.com refer the instructions below and create a separate branch naming the task or contribution to the project.
 
 ## Setup
+1. Create a developers account at shopify with shopify.dev.
 
-1. Create a `.env` inline with `middleware.config.js` file and fill the following required variables
+2. Ask me here at rails_dev@codengine.org for a CSV file to upload products.
+
+3. Once the account is created create a store on the developers portal and create a private app by first clicking app, then 
+manage private apps. Make sure to have storefront enabled to be able retrieve the front-end data. The private API settings can be left blank since we are not using themekit and instead will be calling the data from the Shopify storefront API.
+
+4. Create a `.env` inline with `middleware.config.js` file and fill the following required variables
 
 ```bash
 SHOPIFY_STOREFRONT_TOKEN=<SHOPIFY_ACCESS_TOKEN>
 SHOPIFY_DOMAIN=<SHOPIFY_DOMAIN> # example: vsf-next-pwa.myshopify.com
 ```
 
-2. Run the project
+More specifically add in the tokens and domain from the developers portal on shopify to the .env file and I believe I already have middleware.config.js preconfigured for the website. 
+
+5. Run the project
 
 ``` bash
 # install dependencies
@@ -20,12 +28,11 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 
+# I would not be worried about the other steps below as the steps below are for deployment than contributing or working on a task given.
+
 # build for production and launch server
 $ yarn build
 $ yarn start
-
-# generate static project
-$ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org) / [Vue Storefront Docs](https://docs.vuestorefront.io/v2/).
