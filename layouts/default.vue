@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopBar class="desktop-only" />
+    <!-- <TopBar class="desktop-only" /> -->
     <AppHeader
       :cartTotalItems="getCartTotalItems"
       :isUserAuthenticated="getUserStatus"
