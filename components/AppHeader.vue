@@ -123,12 +123,18 @@ export default {
   &__logo-image {
       height: 100%;
   }
-  &:hover{
-    color: #72757E;
+
+  ::v-deep .sf-search-bar:active{
+    border-bottom: 2px solid #72757E;
   }
 }
 
 .nav-item {
   --header-navigation-item-margin: 0 var(--spacer-base);
+}
+
+::v-deep .sf-header-navigation-item__link:hover{
+  color: #72757E;
+  border-bottom: 2px solid #72757E;
 }
 </style>

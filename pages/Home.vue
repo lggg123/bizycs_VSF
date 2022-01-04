@@ -56,7 +56,7 @@
         button-text="Subscribe"
         description="Be aware of upcoming sales and events. Receive gifts and special offers!"
         image="https://cdn.shopify.com/s/files/1/0407/1902/4288/files/newsletter_1240x202.jpg?v=1616496568"
-        class="call-to-action color-secondary"
+        class="call-to-action"
       />
     </section>
   </div>
@@ -184,11 +184,11 @@ export default {
           background: '#fce4ec',
           image: {
             mobile:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/3_328x224.jpg?v=1640626942',
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/banner02-S18_328x224.jpg?v=1641256365',
             desktop:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/4.jpg?v=1640626976'
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/banner02-S18.jpg?v=1641256365'
           },
-          link: '/c/women/women-clothing-dresses'
+          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyNDUwNTg4MDY=/aositirmotor-s18'
         },
         {
           title: '',
@@ -197,11 +197,11 @@ export default {
           background: '#efebe9',
           image: {
             mobile:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/3_328x224.jpg?v=1640626942',
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/S07-B_2_328x224.jpg?v=1641256365',
             desktop:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/3.jpg?v=1640626942'
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/S07-B_2.jpg?v=1641256365'
           },
-          link: '/c/women/women-shoes-sandals',
+          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyMzk2MTkzMTg=/aositirmotor-s07',
           className:
             'sf-hero-item--position-bg-top-left sf-hero-item--align-right'
         }
