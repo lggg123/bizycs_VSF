@@ -10,6 +10,7 @@
         :background="hero.background"
         :image="hero.image"
         :class="hero.className"
+        :link="hero.link"
       />
     </SfHero>
     <section class="section-box" data-section-name="homeRelatedProducts">
