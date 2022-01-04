@@ -123,10 +123,6 @@ export default {
   &__logo-image {
       height: 100%;
   }
-
-  ::v-deep .sf-search-bar:active{
-    border-bottom: 2px solid #72757E;
-  }
 }
 
 .nav-item {
@@ -137,4 +133,12 @@ export default {
   color: #72757E;
   border-bottom: 2px solid #72757E;
 }
+
+::v-deep .sf-header-navigation-item__link:focus {
+  border-bottom: 2px solid #72757E;
+}
+::v-deep .sf-search-bar__input:focus{
+  --search-bar-border-color: #72757E;
+}
+
 </style>
