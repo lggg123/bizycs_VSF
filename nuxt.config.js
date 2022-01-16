@@ -29,7 +29,7 @@ const config = {
     { path: '/custom', handler: '~/server-middleware/custom-features.js' }
   ],
   head: {
-    title: 'Shopify | Vue Storefront Next',
+    title: 'Bizycs',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -41,7 +41,7 @@ const config = {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/bfavicon.ico' },
     ]
   },
   loading: { color: '#fff' },
@@ -260,8 +260,8 @@ const config = {
         },
       ],
       preCaching: [
-        '/favicon.ico',
-        '/icon.png',
+        '/bfavicon.ico',
+        '/bicon.png',
         '/country-state.json',
         '/error/error.svg',
         '/homepage/apple.png',

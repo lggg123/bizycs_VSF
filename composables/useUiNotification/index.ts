@@ -3,7 +3,7 @@ import { computed, reactive } from '@nuxtjs/composition-api';
 interface UiNotification {
   message: string;
   action: { text: string; onClick: (...args: any) => void };
-  type: 'danger' | 'success' | 'info';
+  type: 'danger' | 'warning' | 'info';
   icon: string;
   persist: boolean;
   id: symbol;

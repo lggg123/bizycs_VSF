@@ -325,7 +325,7 @@ export default {
         this.sendNotification({
           key: 'product_removed',
           message: `${productObj.product.title} has been successfully removed from your cart.`,
-          type: 'success',
+          type: 'warning',
           title: 'Product removed!',
           icon: 'check'
         });
