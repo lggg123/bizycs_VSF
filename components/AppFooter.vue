@@ -4,10 +4,11 @@
       <SfList>
         <SfListItem
           v-for="item in aboutUs"
-          :key="item"
+          :key="item.label"
           >
           <SfMenuItem
-            :label="$t(item)"
+            :label="$t(item.label)"
+            :link="localePath(item.link)"
           />
         </SfListItem>
       </SfList>
@@ -68,10 +69,11 @@ export default {
   },
   data() {
     return {
-      aboutUs: ['Who we are', 'What we do for our clients', 'Customer Reviews'],
-      departments: ['Electric Bicycles', 'Scooters', 'Accessories', 'Home'],
+      //aboutUs: ['Who we are', 'What we do for our clients', 'Customer Reviews'],
+      aboutUs: [{label: 'Who we are', link: '/pages/who-we-are'}, {label: 'What we do for our clients', link: '/pages/what-we-do'}],
+      departments: ['Electric Bicycles', 'Scooters', 'Accessories'],
       help: ['Customer service', 'Contact us'],
-      paymentsDelivery: ['Purchase terms', 'Guarantee'],
+      paymentsDelivery: ['Purchase terms', 'Guarantee', 'Shipping'],
       social: ['facebook', 'pinterest', 'google', 'twitter', 'youtube'],
       isMobile: false,
       desktopMin: 1024
