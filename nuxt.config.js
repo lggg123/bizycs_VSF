@@ -165,6 +165,64 @@ const config = {
     }
   },
   router: {
+    extendRoutes(routes, resolve) {
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/WhoWeAre'), 1,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/WhatWeDo'), 2,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/CustomerService'), 2,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/ContactUs'), 2,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/PurchaseTerms'), 2,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/PurchaseTerms'), 2,
+      );
+      // Re-register the same component but with different path
+      routes.push({
+        name: 'WhoWeAre',
+        path: '/pages/who-we-are',
+        component: resolve(__dirname, 'pages/WhoWeAre.vue')
+      },
+      {
+        name: 'WhatWeDo',
+        path: '/pages/what-we-do',
+        component: resolve(__dirname, 'pages/WhatWeDo.vue')
+      },
+      {
+        name: 'CustomerService',
+        path: '/pages/customer-service',
+        component: resolve(__dirname, 'pages/CustomerService.vue')
+      },
+      {
+        name: 'ContactUs',
+        path: '/pages/contact-us',
+        component: resolve(__dirname, 'pages/ContactUs.vue')
+      },
+      {
+        name: 'PurchaseTerms',
+        path: '/pages/purchase-terms',
+        component: resolve(__dirname, 'pages/PurchaseTerms.vue')
+      },
+      {
+        name: 'Shipping',
+        path: '/pages/shipping',
+        component: resolve(__dirname, 'pages/Shipping.vue')
+      },
+      {
+        name: 'CustomerReviews',
+        path: '/pages/customer-reviews',
+        component: resolve(__dirname, 'pages/CustomerReviews.vue')
+      });
+     },
+
+
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     scrollBehavior(_to, _from, savedPosition) {
       if (savedPosition) {
