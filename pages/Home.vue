@@ -21,20 +21,20 @@
         title=""
       />
     </section>
-    <section style="display: flex;">
-      <div style="width:40%;">
+    <section class="video-w-text">
+      <div class="text-on-vid">
         <h2>Why An Electric Bike?</h2>
         <p>What makes and takes half an hour can be accomplished in a matter of 10 minutes. Imagine everything you want to do more efficiently with your bike at not only a faster pace, but more efficient.</p>
-        <div style="display: flex">
+        <div class="text-button-container">
           <SfButton style="margin: 10px; border-radius: 20px;" class="sf-button-trend">Explore</SfButton>
           <SfButton style="margin: 10px; border-radius: 20px;" class="color-secondary sf-button">Buy Now!</SfButton>
         </div>
       </div>
-      <div style="width: 60%; padding: 10px;">
+      <div style="display: flex; width: 60%; padding: 10px;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/azwDrXeFNUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
-    <section class="section-box" data-section-name="homeBannerGrid">
+    <!-- <section class="section-box" data-section-name="homeBannerGrid">
       <SfBannerGrid :banner-grid="1" class="banner-grid" v-if="sectionList.homeBannerGrid">
         <template v-for="item in banners" #[item.slot]>
           <SfBanner
@@ -48,9 +48,9 @@
           />
         </template>
       </SfBannerGrid>
-    </section>
+    </section> -->
 
-    <section class="section-box" data-section-name="homeNewsletters">
+    <!-- <section class="section-box" data-section-name="homeNewsletters">
       <SfCallToAction
         v-if="sectionList.homeNewsletters"
         title="Subscribe to Newsletters"
@@ -59,7 +59,7 @@
         image="https://cdn.shopify.com/s/files/1/0407/1902/4288/files/newsletter_1240x202.jpg?v=1616496568"
         class="call-to-action"
       />
-    </section>
+    </section> -->
   </div>
 </template>
 <script type="module">
@@ -74,12 +74,14 @@ import {
   SfArrow,
   SfButton
 } from '@storefront-ui/vue';
+import { useUiNotification } from '~/composables';
 import 
   SfHero
  from "~/components/SfHero/SfHero.vue";
 import {
   useProduct,
-  productGetters
+  productGetters,
+  useCart
 } from '@vue-storefront/shopify';
 import {
   ref,
@@ -106,6 +108,8 @@ export default {
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setup() {
+    const { addItem: addItemToCart, isInCart } = useCart();
+    const { send: sendNotification } = useUiNotification();
     const {
       products: relatedProducts,
       search: productsSearch,
@@ -158,7 +162,10 @@ export default {
       ),
       productsLoading,
       productGetters,
-      sectionList
+      sectionList,
+      sendNotification,
+      addItemToCart,
+      isInCart
     };
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -168,21 +175,8 @@ export default {
         {
           title: '',
           subtitle: '',
-          buttonText: 'Shop now',
+          buttonText: 'Buy now',
           background: '#eceff1',
-          image: {
-            mobile:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/10.jpg?v=1640313974',
-            desktop:
-              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/10.jpg?v=1640313974'
-          },
-          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyMTk1NjUzMDI=/aositirmotor-a-20'
-        },
-        {
-          title: '',
-          subtitle: '',
-          buttonText: 'Learn more',
-          background: '#fce4ec',
           image: {
             mobile:
               'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/banner02-S18_328x224.jpg?v=1641256365',
@@ -195,78 +189,91 @@ export default {
           title: '',
           subtitle: '',
           buttonText: 'Learn more',
-          background: '#efebe9',
+          background: '#fce4ec',
           image: {
             mobile:
               'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/S07-B_2_328x224.jpg?v=1641256365',
             desktop:
               'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/S07-B_2.jpg?v=1641256365'
           },
-          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyMzk2MTkzMTg=/aositirmotor-s07',
+          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyMzk2MTkzMTg=/aositirmotor-s07'
+        },
+        {
+          title: '',
+          subtitle: '',
+          buttonText: 'Shop now',
+          background: '#efebe9',
+          image: {
+            mobile:
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/10.jpg?v=1640313974',
+            desktop:
+              'https://cdn.shopify.com/s/files/1/0618/2318/9238/files/10.jpg?v=1640313974'
+          },
+          link: '/p/Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc1MDYyMTk1NjUzMDI=/aositirmotor-a-20',
           className:
             'sf-hero-item--position-bg-top-left sf-hero-item--align-right'
         }
-      ],
-      banners: [
-        {
-          slot: 'banner-A',
-          subtitle: 'Dresses',
-          title: 'Cocktail & Party',
-          description:
-            'Find stunning women\'s cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.',
-          buttonText: 'Shop now',
-          image: {
-            mobile:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerB_328x343.jpg',
-            desktop:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerF_332x840.jpg'
-          },
-          class: 'sf-banner--slim desktop-only',
-          link: '/c/women/women-clothing-skirts'
-        },
-        {
-          slot: 'banner-B',
-          subtitle: 'Dresses',
-          title: 'Linen Dresses',
-          description:
-            'Find stunning women\'s cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.',
-          buttonText: 'Shop now',
-          image: {
-            mobile:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerE_328x343.jpg',
-            desktop:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerE_496x840.jpg'
-          },
-          class: 'sf-banner--slim banner-central desktop-only',
-          link: '/c/women/women-clothing-dresses'
-        },
-        {
-          slot: 'banner-C',
-          subtitle: 'T-Shirts',
-          title: 'The Office Life',
-          image: {
-            mobile:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerC_328x343.jpg',
-            desktop:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerC_332x400.jpg'
-          },
-          class: 'sf-banner--slim banner__tshirt',
-          link: '/c/women/women-clothing-shirts'
-        },
-        {
-          slot: 'banner-D',
-          subtitle: 'Summer Sandals',
-          title: 'Eco Sandals',
-          image: {
-            mobile:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerG_328x343.jpg',
-            desktop:
-              'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerG_332x400.jpg'
-          },
-          class: 'sf-banner--slim',
-          link: '/c/women/women-shoes-sandals'
-        }
       ]
+      // banners: [
+      //   {
+      //     slot: 'banner-A',
+      //     subtitle: 'Dresses',
+      //     title: 'Cocktail & Party',
+      //     description:
+      //       'Find stunning women\'s cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.',
+      //     buttonText: 'Shop now',
+      //     image: {
+      //       mobile:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerB_328x343.jpg',
+      //       desktop:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerF_332x840.jpg'
+      //     },
+      //     class: 'sf-banner--slim desktop-only',
+      //     link: '/c/women/women-clothing-skirts'
+      //   },
+      //   {
+      //     slot: 'banner-B',
+      //     subtitle: 'Dresses',
+      //     title: 'Linen Dresses',
+      //     description:
+      //       'Find stunning women\'s cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.',
+      //     buttonText: 'Shop now',
+      //     image: {
+      //       mobile:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerE_328x343.jpg',
+      //       desktop:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerE_496x840.jpg'
+      //     },
+      //     class: 'sf-banner--slim banner-central desktop-only',
+      //     link: '/c/women/women-clothing-dresses'
+      //   },
+      //   {
+      //     slot: 'banner-C',
+      //     subtitle: 'T-Shirts',
+      //     title: 'The Office Life',
+      //     image: {
+      //       mobile:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerC_328x343.jpg',
+      //       desktop:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerC_332x400.jpg'
+      //     },
+      //     class: 'sf-banner--slim banner__tshirt',
+      //     link: '/c/women/women-clothing-shirts'
+      //   },
+      //   {
+      //     slot: 'banner-D',
+      //     subtitle: 'Summer Sandals',
+      //     title: 'Eco Sandals',
+      //     image: {
+      //       mobile:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerG_328x343.jpg',
+      //       desktop:
+      //         'https://cdn.shopify.com/s/files/1/0407/1902/4288/files/bannerG_332x400.jpg'
+      //     },
+      //     class: 'sf-banner--slim',
+      //     link: '/c/women/women-shoes-sandals'
+      //   }
+      // ]
     };
   },
   methods: {
@@ -389,6 +396,31 @@ export default {
   @include for-desktop {
     margin: var(--spacer-xl) 0 var(--spacer-2xl) 0;
   }
+}
+
+.video-w-text{
+  display: flex; 
+
+}
+
+.text-on-vid {
+    width: 40%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .video-w-text {
+    flex-direction: column;
+  }
+
+  .text-on-vid {
+    width: 100%;
+  }
+}
+
+
+
+.text-button-container{
+  display: flex;
 }
 
 .carousel {

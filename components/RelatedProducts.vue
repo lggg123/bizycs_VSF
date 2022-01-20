@@ -13,6 +13,8 @@
             :regular-price="$n(productGetters.getPrice(product).regular, 'currency')"
             :special-price="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
             :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+            @click:add-to-cart="HandleAddTocart({ product, quantity:1 })"
+            :is-added-to-cart="isInCart({ product })"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -29,7 +31,9 @@ import {
   SfLoader
 } from '@storefront-ui/vue';
 
-import { productGetters } from '@vue-storefront/shopify';
+import { productGetters, useCart } from '@vue-storefront/shopify';
+
+import { useUiNotification } from '~/composables';
 
 export default {
   name: 'RelatedProducts',
@@ -45,7 +49,22 @@ export default {
     loading: Boolean
   },
   setup() {
-    return { productGetters };
+    const { addItem: addItemToCart, isInCart } = useCart();
+    const { send: sendNotification } = useUiNotification();
+    return { productGetters, addItemToCart, isInCart, sendNotification };
+  },
+  methods: {
+    HandleAddTocart(productObj) {
+      this.addItemToCart(productObj).then(() => {
+        this.sendNotification({
+          key: 'added_to_cart',
+          message: 'Product has been successfully added to cart !',
+          type: 'success',
+          title: 'Product added!',
+          icon: 'check'
+        });
+      });
+    }
   }
 };
 </script>
