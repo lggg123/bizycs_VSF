@@ -400,7 +400,6 @@ export default {
 
 .video-w-text{
   display: flex; 
-
 }
 
 .text-on-vid {
@@ -416,8 +415,6 @@ export default {
     width: 100%;
   }
 }
-
-
 
 .text-button-container{
   display: flex;

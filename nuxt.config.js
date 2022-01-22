@@ -41,7 +41,7 @@ const config = {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/bfavicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
   loading: { color: '#fff' },
@@ -182,7 +182,10 @@ const config = {
         routes.findIndex(route => route.path === 'pages/PurchaseTerms'), 2,
       );
       routes.splice(
-        routes.findIndex(route => route.path === 'pages/PurchaseTerms'), 2,
+        routes.findIndex(route => route.path === 'pages/Shipping'), 2,
+      );
+      routes.splice(
+        routes.findIndex(route => route.path === 'pages/CustomerReviews'), 2,
       );
       // Re-register the same component but with different path
       routes.push({
@@ -318,7 +321,7 @@ const config = {
         },
       ],
       preCaching: [
-        '/bfavicon.ico',
+        '/favicon.ico',
         '/bicon.png',
         '/country-state.json',
         '/error/error.svg',
