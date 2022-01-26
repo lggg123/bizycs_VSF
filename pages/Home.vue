@@ -34,32 +34,6 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/azwDrXeFNUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
-    <!-- <section class="section-box" data-section-name="homeBannerGrid">
-      <SfBannerGrid :banner-grid="1" class="banner-grid" v-if="sectionList.homeBannerGrid">
-        <template v-for="item in banners" #[item.slot]>
-          <SfBanner
-            :key="item.slot"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :description="item.description"
-            :button-text="item.buttonText"
-            :image="item.image"
-            :class="item.class"
-          />
-        </template>
-      </SfBannerGrid>
-    </section> -->
-
-    <!-- <section class="section-box" data-section-name="homeNewsletters">
-      <SfCallToAction
-        v-if="sectionList.homeNewsletters"
-        title="Subscribe to Newsletters"
-        button-text="Subscribe"
-        description="Be aware of upcoming sales and events. Receive gifts and special offers!"
-        image="https://cdn.shopify.com/s/files/1/0407/1902/4288/files/newsletter_1240x202.jpg?v=1616496568"
-        class="call-to-action"
-      />
-    </section> -->
   </div>
 </template>
 <script type="module">
